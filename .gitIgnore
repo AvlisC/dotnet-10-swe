@@ -1,0 +1,11 @@
+/ProductApi.Application/obj
+/ProductApi.Application/bin
+/ProductApi.Domain/obj
+/ProductApi.Domain/bin
+/ProductApi.Infrastructure/obj
+/ProductApi.Infrastructure/bin
+/ProductApi.Api/obj
+/ProductApi.Api/bin
+/ProductApi.Tests/obj
+/ProductApi.Tests/bin
+/.vs
