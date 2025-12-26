@@ -26,28 +26,28 @@ public class ProductsController : ControllerBase
         _updateProductUseCase = updateProductUseCase;
     }
 
-    [HttpPost("create")]
+    [HttpPost]
     public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest request)
     {
         var product = await _createProductUseCase.ExecuteAsync(request.Name, request.Description, request.Price);
         return CreatedAtAction(nameof(CreateProduct), new { product.Id }, product);
     }
 
-    [HttpPut("update/{id}")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> UpdateProduct([FromBody] CreateProductRequest request, Guid id)
     {
         await _updateProductUseCase.ExecuteAsync(id, request.Name, request.Description, request.Price);
         return NoContent();
     }
 
-    [HttpDelete("delete/{id}")]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteProductById(Guid id)
     {
         await _deleteProductUseCase.ExecuteAsync(id);
         return NoContent();
     }
 
-    [HttpGet("list")]
+    [HttpGet]
     public async Task<IActionResult> GestAllProductList()
     {
         var productList = await _listProductUseCase.ExecuteAsync();
